@@ -10,9 +10,9 @@
 		<relativePath />
 	</parent>
 	<groupId>me.kickscar</groupId>
-	<artifactId>service-registry-server</artifactId>
+	<artifactId>service-config-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>service-registry-server</name>
+	<name>service-config</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,10 +22,10 @@
 	</properties>
 
 	<dependencies>
-		<!-- Spring Cloud Discovery: Nextflix Eureka Server -->
+		<!-- Spring Cloud Config Server -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
 		
 		<!-- Spring Boot Test Integration -->
@@ -33,13 +33,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-				
-		<!-- JDK 11 Support -->
-		<dependency>
-			<groupId>org.glassfish.jaxb</groupId>
-			<artifactId>jaxb-runtime</artifactId>
-		</dependency>
+		</dependency>		
 	</dependencies>
 
 	<dependencyManagement>
@@ -55,33 +49,13 @@
 	</dependencyManagement>
 
 	<build>
-		<finalName>service-registry-server</finalName>
+		<finalName>service-config-server</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>copy-resources</id>
-						<phase>validate</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target</outputDirectory>
-							<resources>
-								<resource>
-									<directory>src/main/resources/script</directory>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>			
 		</plugins>
 	</build>
+
 </project>
